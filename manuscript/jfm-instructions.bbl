@@ -1,0 +1,34 @@
+\begin{thebibliography}{5}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\def\au#1{#1} \def\ed#1{#1} \def\yr#1{#1}\def\at#1{#1}\def\jt#1{\textit{#1}}
+  \def\bt#1{#1}\def\bvol#1{\textbf{#1}} \def\vol#1{#1} \def\pg#1{#1}
+  \def\publ#1{#1}\def\arxiv#1{#1}\def\org#1{#1}\def\st#1{\textit{#1}}
+
+\bibitem[Aker(2010)]{10.1257/app.2.3.46}
+{\sc \au{Aker, Jenny~C.}} \yr{2010}  \at{Information from markets near and far:
+  Mobile phones and agricultural markets in niger}.  \jt{American Economic
+  Journal: Applied Economics}  \bvol{2}~(3),  \pg{46--59}.
+
+\bibitem[Gonzalez \& Maffioli(2024)]{GONZALEZ2024103228}
+{\sc \au{Gonzalez, Robert} \& \au{Maffioli, Elisa~M.}} \yr{2024}  \at{Is the
+  phone mightier than the virus? cellphone access and epidemic containment
+  efforts}.  \jt{Journal of Development Economics}  \bvol{167},  \pg{103228}.
+
+\bibitem[Gonzalez(2021)]{10.1257/app.20190443}
+{\sc \au{Gonzalez, Robert~M.}} \yr{2021}  \at{Cell phone access and election
+  fraud: Evidence from a spatial regression discontinuity design in
+  afghanistan}.  \jt{American Economic Journal: Applied Economics}
+  \bvol{13}~(2),  \pg{1--51}.
+
+\bibitem[Ortega \& Rodr\'{\i}guez(2008)]{doi:10.1086/590461}
+{\sc \au{Ortega, Daniel} \& \au{Rodr\'{\i}guez, Francisco}} \yr{2008}
+  \at{Freed from illiteracy? a closer look at venezuela’s misión robinson
+  literacy campaign}.  \jt{Economic Development and Cultural Change}
+  \bvol{57}~(1),  \pg{1--30}.
+
+\bibitem[Oxenham(2002)]{RePEc:wbk:wboper:9767}
+{\sc \au{Oxenham, John}} \yr{2002}  \bt{{Skills and Literacy Training for
+  Better Livelihoods : A Review of Approaches and Experiences}}. World Bank
+  Publications - Reports 9767.  \org{The World Bank Group}.
+
+\end{thebibliography}
