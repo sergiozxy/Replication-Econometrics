@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{4}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \def\au#1{#1} \def\ed#1{#1} \def\yr#1{#1}\def\at#1{#1}\def\jt#1{\textit{#1}}
   \def\bt#1{#1}\def\bvol#1{\textbf{#1}} \def\vol#1{#1} \def\pg#1{#1}
@@ -13,12 +13,6 @@
 {\sc \au{Gonzalez, Robert} \& \au{Maffioli, Elisa~M.}} \yr{2024}  \at{Is the
   phone mightier than the virus? cellphone access and epidemic containment
   efforts}.  \jt{Journal of Development Economics}  \bvol{167},  \pg{103228}.
-
-\bibitem[Gonzalez(2021)]{10.1257/app.20190443}
-{\sc \au{Gonzalez, Robert~M.}} \yr{2021}  \at{Cell phone access and election
-  fraud: Evidence from a spatial regression discontinuity design in
-  afghanistan}.  \jt{American Economic Journal: Applied Economics}
-  \bvol{13}~(2),  \pg{1--51}.
 
 \bibitem[Ortega \& Rodr\'{\i}guez(2008)]{doi:10.1086/590461}
 {\sc \au{Ortega, Daniel} \& \au{Rodr\'{\i}guez, Francisco}} \yr{2008}
