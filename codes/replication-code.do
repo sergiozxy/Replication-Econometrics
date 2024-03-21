@@ -2,12 +2,12 @@ cd "E:\umich\Replication-Econometrics\02. Datasets"
 
 use "ABChousehold.dta", clear
 
-label age "age"
+label variable age "age"
 
 preserve
-    describe, replace
+    describe, replace clear
     list
-    export excel using variable_label_correspondence.xlsx, replace first(var)
+    export excel using variable__label_correspondence.xlsx, replace first(var)
 restore
 
 keep if year==2009
