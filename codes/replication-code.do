@@ -38,11 +38,11 @@ estpost tabstat $Pre_Test_Variables, by(abc) stat(mean sd) nototal col(stat)
 logout, save(ttest_with_result_mean_std) dta replace: tabstat $Pre_Test_Variables, by(abc) stat(mean sd) nototal long col(stat) label
 
 
-foreach i in $Pre_Test_Vaiables{
+foreach i in $Pre_Test_Variables{
 	bys abc: su `i'
 	reg `i' abc, robust cluster(codev)
 	xi: reg `i' abc i.avcode, robust cluster(codev)
-	outreg2 abc using "Table1_PanelA.xlsx", dec(2) append excel ctitle ("`var'")	nocons
+	outreg2 abc using "Table1_PanelA", dec(2) append dta ctitle ("`var'")	nocons
 	}
 
 	
