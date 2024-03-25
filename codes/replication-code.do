@@ -24,11 +24,12 @@ keep if year==2009
 global Pre_Test_Variables age hhhead eth_hausa hhmem_no edchild_percent assets drought cellphone accesscellphone usecellphone makecall receivecall  
 
 // summary statistics
-// I will save these results to word, and use python to combine the word to latex
+// I will save these results to stata dta, and use python to combine the result to latex
 
-logout, save("ttest_with_result.rtf") word replace: ttable3 kou yiji erji sanji end_price_pers pop light pm25 $Control_Variables, by(abc) tvalue
-logout, save("ttest_with_result_mean_std.rtf") word replace: tabstat kou yiji erji sanji end_price_pers pop light pm25 $Control_Variables, by(abc) stat(mean sd) nototal long col(stat)
-
+/*
+logout, save("ttest_with_result") dta replace: ttable3 $Pre_Test_Variables, by(abc) tvalue
+logout, save("ttest_with_result_mean_std") dta replace: tabstat $Pre_Test_Variables, by(abc) stat(mean sd) nototal long col(stat)
+*/
 
 
 // report the mean and standard deviation
@@ -48,4 +49,12 @@ foreach i in $Pre_Test_Variables{
 	
 // now run the python code in jupyter notebook to generate the latex table in paper.
 	
+// Table 2
+	
+use "ABCtestscore.dta", clear
+
+keep if round==1|round==2|round==4
+
+
+
 clear
