@@ -77,31 +77,51 @@ foreach i in $Pre_Test_Variables{
 	outreg2 abc using "Table1_PanelA", dec(2) append dta ctitle ("`var'")	nocons
 }
 
-use "$df/ABCtestscore.dta", clear
+use "ABCteacher.dta", clear
+
+preserve
+    describe, replace clear
+    list
+    export excel using variable__label_correspondence_teacher.xlsx, replace first(var)
+restore
+
+use "ABCtestscore.dta", clear
 
 bys codev: keep if _n==1
 keep codev
-merge 1:m codev using "$df/ABCteacher.dta"
+merge 1:m codev using "ABCteacher.dta"
 
+// note that during our operation, we have dropped some of the codes that are not contained in the test score result.
+// because these are not relevant to our study.
 tab _m
 drop if _m==2
+
+logout, save(Table1_PanelB_mean_std) dta replace: tabstat levelno teacherage femaleteacher local, by(abc) stat(mean sd) nototal long col(stat)
+
 
 foreach i in levelno teacherage femaleteacher local{
 	bys abc: su `i' 
 	reg `i' abc, robust cluster(codev)
 	xi: reg `i' abc i.avcode, robust cluster(codev)
-	outreg2 abc using "$df/Table1_PanelB.xls", dec(2) append excel ctitle ("`var'")	nocons
+	outreg2 abc using "Table1_PanelB", dec(2) append dta ctitle ("`var'")	nocons
 	}
 clear
 
 
-use "$df/ABCtestscore.dta", replace
-global charlist "writez1 mathz1"
+use "ABCtestscore.dta", clear
 
-foreach i of global charlist {
+preserve
+    describe, replace clear
+    list
+    export excel using variable__label_correspondence_test_score.xlsx, replace first(var)
+restore
+
+logout, save(Table1_PanelC_mean_std) dta replace: tabstat writez1 mathz1, by(abc) stat(mean sd) nototal long col(stat)
+
+foreach i of varlist writez1 mathz1 {
 	bys abc: su `i'
 	xi: reg `i' abc i.avc, cluster(codev)
-	outreg2 abc using "$df/Table2.xls", dec(2) append excel ctitle ("`var'") 	nocons	
+	outreg2 abc using "Table1_PanelC", dec(2) append dta ctitle ("`var'")	nocons
 	}
 
 clear
