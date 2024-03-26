@@ -1068,13 +1068,21 @@
 \newcommand\followon{\global\followontrue}
 \newcommand\norule{\global\rmruletrue}
 
+% \newenvironment{table}
+%  {\@float{table}\fstyle@table
+%   \iffollowon \else \vspace*{9.5\p@}\fi
+%   \global\followonfalse
+%   \rule{\textwidth}{.5\p@}\vskip\floatsep\relax}
+%  {\ifrmrule \global\rmrulefalse \else \rule{\textwidth}{.5\p@}\fi
+%   \end@float}
+
 \newenvironment{table}
   {\@float{table}\fstyle@table
    \iffollowon \else \vspace*{9.5\p@}\fi
    \global\followonfalse
-   \rule{\textwidth}{.5\p@}\vskip\floatsep\relax}
-  {\ifrmrule \global\rmrulefalse \else \rule{\textwidth}{.5\p@}\fi
-   \end@float}
+   \vskip\floatsep\relax}
+  {\end@float}
+
 
 \newenvironment{table*}{\@dblfloat{table}\fstyle@table}{\end@dblfloat}
 \newenvironment{plaintable}{\@float{table}\fstyle@table}{\end@float}

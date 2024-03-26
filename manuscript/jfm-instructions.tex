@@ -12,6 +12,7 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{mathptmx}
+\usepackage{amsmath}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,     % color of internal links (change box color with linkbordercolor)
@@ -70,38 +71,6 @@ Before we introduce the main result, we first need to check whether the differen
 
 where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t$, $ABC_{ivt}$ is a dummy variable indicating whether the individual has a mobile phone, $\bf{X}_{iv}^\prime$ is a vector of individual characteristics, $\tau_{vt}$ is subdistrict fixed effect and $\varepsilon_{ivt}$ is the error term. The result is reported in Table \ref{tab:baseline} and the standard error is clustered at each village level.
 
-The result shows that the test score is not significantly higher in the treatment group than in the control group, which indicates that the RCT assumption is valid. This is because if the random experiment is not valid, the coefficient of $\beta_1$ will be statistically significant, which means that selecting which group to be the treatment group in our experiment is not random.
-
-\subsection{Contamination Check} \label{subsec:contamination}
-
-Apart from testing the direct effect of $ABC_{v}$ on the test score, we also need to check whether there is any contamination between the treatment and control groups. The contamination check is to test whether the treatment group and the control group are significantly different in terms of household and teacher characteristics. To correct for potential , we use the 
-
-The summary statistics is reported in Table \ref{tab:contamination}. We can see that before the program starts, all of the variables are not significantly different between the control group and the treatment group, indicates that there is no pre-treatment contamination. 
-
-
-\subsection{Difference-in-Difference Estimation} \label{subsec:did}
-
-We consider the 
-
-\begin{equation}
- Test_{ivt} = \beta_0 + \beta_1 ABC_{v} + \beta_2 Post_{v} + \beta_3 (ABC_v \times Post_v) + \bf{X}_{iv}^\prime + \delta cohort_{v} + \theta_R + \varepsilon_{ivt} \label{eq:did_baseline}  
-\end{equation}
-
-where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t$, $ABC_v$ is a dummy variable indicating whether the village is in the treatment group, $Post_v$ is a dummy variable indicating whether the test is conducted after the program, $\bf{X}_{iv}^\prime$ is a vector of individual characteristics, $cohort_{v}$ is a dummy variable indicating the cohort, $\theta_R$ is a randomization error, and $\varepsilon_{ivt}$ is the error term.
-
-
-
-
-\section{Conclusion}
-
-
-\bibliographystyle{jfm}
-% Note the spaces between the initials
-\bibliography{jfm-instructions}
-
-
-\newpage
-
 \begin{table}
   \begin{center}
     \begin{footnotesize}
@@ -114,6 +83,12 @@ where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t
   \end{center}
 \end{table}
 
+The result shows that the test score is not significantly higher in the treatment group than in the control group, which indicates that the RCT assumption is valid. This is because if the random experiment is not valid, the coefficient of $\beta_1$ will be statistically significant, which means that selecting which group to be the treatment group in our experiment is not random.
+
+\subsection{Contamination Check} \label{subsec:contamination}
+
+Apart from testing the direct effect of $ABC_{v}$ on the test score, we also need to check whether there is any contamination between the treatment and control groups. The contamination check is to test whether the treatment group and the control group are significantly different in terms of household and teacher characteristics. To check whether it is significantly zero, we also use the Equation \eqref{eq:baseline} to check if the policy $ABC_{v}$ contains the problem.\footnote{Note that using two-tailed t-test is equivalent for using regression in dummy variable setting and we also correct for individual fixed effect and cluster the standard error at village level, which means that our result is more robust.} The result is shown at Table \ref{tab:contamination}.
+
 \begin{table}
   \begin{center}
     \begin{footnotesize}
@@ -125,6 +100,38 @@ where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t
     \end{footnotesize}
   \end{center}
 \end{table}
+
+The summary statistics is reported in Table \ref{tab:contamination}. We can see that before the program starts, all of the variables are not significantly different between the control group and the treatment group, indicates that there is no pre-treatment contamination. In addition, the sample means of the variables between groups are close to each other, which also supports the setting of a parallel trend before the assumption of the model because of $E[Y_0\big|D = 1] = E[Y_0\big|D = 0]$.
+
+\subsection{Difference-in-Difference Estimation} \label{subsec:did}
+
+To carry out our formal analysis, we consider the following setting:
+
+\begin{equation}
+ Test_{ivt} = \beta_0 + \beta_1 ABC_{v} + \beta_2 Post_{v} + \beta_3 (ABC_v \times Post_v) + \bf{X}_{iv}^\prime + \delta cohort_{v} + \theta_R + \varepsilon_{ivt} \label{eq:did_baseline}  
+\end{equation}
+
+where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t$, $ABC_v$ is a dummy variable indicating whether the village is in the treatment group, $Post_v$ is a dummy variable indicating whether the test is conducted after the program, $\bf{X}_{iv}^\prime$ is a vector of individual characteristics, $cohort_{v}$ is a dummy variable indicating the cohort, $\theta_R$ is a randomization error, and $\varepsilon_{ivt}$ is the error term. The $ABC_v \times Post_v$ is our DID estimator, which represents the effect after the policy's implementation.
+
+First of all, our DID estimation satisfies the condition of Irreversibility of Treatment. Moreover, the parallel trend condition also holds based on what we have discussed on \ref{subsec:baseline} and \ref{subsec:contamination}. Therefore, we can conclude that our estimated effect $ATT$ is consistent \citep{CALLAWAY2021200}. The result is shown at Table \ref{tab:did_result}.
+
+From the table, we can see that
+
+\section{Robustness Check} \label{sec:robustness_check}
+
+\section{Conclusion} \label{sec:conclusion}
+
+
+\bibliographystyle{jfm}
+% Note the spaces between the initials
+\bibliography{jfm-instructions}
+
+
+\newpage
+
+
+
+
 
 
 

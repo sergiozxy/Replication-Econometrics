@@ -134,6 +134,69 @@ use "ABCtestscore.dta", clear
 
 keep if round==1|round==2|round==4
 
+regress writezscore abc post abcpost i.avc, robust cluster(codev)
+est store did_1
+
+regress mathzscore abc post abcpost i.avc, robust cluster(codev)
+est store did_2
+
+regress writezscore abc post abcpost age female zarma kanuri dosso i.avc, robust cluster(codev)
+est store did_3
+
+regress mathzscore abc post abcpost age female hausa zarma kanuri dosso i.avc, robust cluster(codev)
+est store did_4
+
+generate agesq = age * age
+regress writezscore abc post abcpost age agesq female zarma kanuri dosso i.avc, robust cluster(codev)
+est store did_5
+
+regress mathzscore abc post abcpost age agesq female zarma kanuri dosso i.avc, robust cluster(codev)
+est store did_6
+
+qui tab codevillage, gen(village_dum)
+
+reg writezscore abc post abcpost age agesq female village_dum*, robust cluster(codev)
+est store did_7
+
+reg mathzscore abc post abcpost age agesq female village_dum*, robust cluster(codev)
+est store did_8
+
+esttab did_* ///
+ using ../manuscript/Tables/did_result.tex, ///
+style(tex) booktabs keep(abc post abcpost age agesq female) ///
+mtitle("literacy" "math" "literacy" "math" "literacy" "math" "literacy" "math") ///
+star(* 0.1 ** 0.05 *** 0.01) ///
+se ///
+scalars("r2 R-squared") ///
+ replace
+
+// more test result based on Effects of the ABC Program by Year
+
+
+reg writezscore abcpost5m abcpost17m post5m  post17m abc age agesq female village_dum*, robust cluster(codev)
+est store heterogeneous_check_1
+
+reg writezscore abcpost5m abcpost17m post5m  post17m cohort2009 abc age agesq female village_dum*, robust cluster(codev)
+est store heterogeneous_check_2
+
+reg mathzscore abcpost5m abcpost17m post5m  post17m abc age agesq female village_dum*, robust cluster(codev)
+est store heterogeneous_check_3
+
+reg writezscore abcpost5m abcpost17m post5m  post17m cohort2009 abc age agesq female village_dum*, robust cluster(codev)
+est store heterogeneous_check_4
+
+esttab heterogeneous_check_* ///
+ using ../manuscript/Tables/heterogenous_check.tex, ///
+style(tex) booktabs keep(abc post abcpost age agesq female) ///
+mtitle("literacy" "literacy" "math"  "math") ///
+star(* 0.1 ** 0.05 *** 0.01) ///
+se ///
+scalars("r2 R-squared") ///
+ replace
+
+
+
+// we also conduct Figure 4.  Impact of the ABC Program on Test Score Achievements
 
 
 clear

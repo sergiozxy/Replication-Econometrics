@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \def\au#1{#1} \def\ed#1{#1} \def\yr#1{#1}\def\at#1{#1}\def\jt#1{\textit{#1}}
   \def\bt#1{#1}\def\bvol#1{\textbf{#1}} \def\vol#1{#1} \def\pg#1{#1}
@@ -20,6 +20,12 @@
   \yr{2009}  \at{Technology's edge: The educational benefits of computer-aided
   instruction}.  \jt{American Economic Journal: Economic Policy}  \bvol{1}~(1),
    \pg{52--74}.
+
+\bibitem[Callaway \& Sant’Anna(2021)]{CALLAWAY2021200}
+{\sc \au{Callaway, Brantly} \& \au{Sant’Anna, Pedro~H.C.}} \yr{2021}
+  \at{Difference-in-differences with multiple time periods}.  \jt{Journal of
+  Econometrics}  \bvol{225}~(2),  \pg{200--230}, themed Issue: Treatment Effect
+  1.
 
 \bibitem[Cheng(2015)]{CHENG2015109}
 {\sc \au{Cheng, Yung-Ming}} \yr{2015}  \at{Towards an understanding of the
