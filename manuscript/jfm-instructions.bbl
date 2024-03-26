@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{9}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \def\au#1{#1} \def\ed#1{#1} \def\yr#1{#1}\def\at#1{#1}\def\jt#1{\textit{#1}}
   \def\bt#1{#1}\def\bvol#1{\textbf{#1}} \def\vol#1{#1} \def\pg#1{#1}
@@ -9,10 +9,33 @@
   Mobile phones and agricultural markets in niger}.  \jt{American Economic
   Journal: Applied Economics}  \bvol{2}~(3),  \pg{46--59}.
 
+\bibitem[Aker \& Mbiti(2010)]{10.1257/jep.24.3.207}
+{\sc \au{Aker, Jenny~C.} \& \au{Mbiti, Isaac~M.}} \yr{2010}  \at{Mobile phones
+  and economic development in africa}.  \jt{Journal of Economic Perspectives}
+  \bvol{24}~(3),  \pg{207--32}.
+
+\bibitem[Barrow {\em et~al.\/}(2009)Barrow, Markman \&
+  Rouse]{10.1257/pol.1.1.52}
+{\sc \au{Barrow, Lisa}, \au{Markman, Lisa} \& \au{Rouse, Cecilia~Elena}}
+  \yr{2009}  \at{Technology's edge: The educational benefits of computer-aided
+  instruction}.  \jt{American Economic Journal: Economic Policy}  \bvol{1}~(1),
+   \pg{52--74}.
+
+\bibitem[Cheng(2015)]{CHENG2015109}
+{\sc \au{Cheng, Yung-Ming}} \yr{2015}  \at{Towards an understanding of the
+  factors affecting m-learning acceptance: Roles of technological
+  characteristics and compatibility}.  \jt{Asia Pacific Management Review}
+  \bvol{20}~(3),  \pg{109--119}.
+
 \bibitem[Gonzalez \& Maffioli(2024)]{GONZALEZ2024103228}
 {\sc \au{Gonzalez, Robert} \& \au{Maffioli, Elisa~M.}} \yr{2024}  \at{Is the
   phone mightier than the virus? cellphone access and epidemic containment
   efforts}.  \jt{Journal of Development Economics}  \bvol{167},  \pg{103228}.
+
+\bibitem[Grzybowski \& Patel(2023)]{GrzybowskiPatel+2023+85+114}
+{\sc \au{Grzybowski, Lukasz} \& \au{Patel, Zubair~Maghmood}} \yr{2023}  \at{The
+  impact of mobile phones on change in employment status in south africa}.
+  \jt{Review of Network Economics}  \bvol{22}~(2),  \pg{85--114}.
 
 \bibitem[Ortega \& Rodr\'{\i}guez(2008)]{doi:10.1086/590461}
 {\sc \au{Ortega, Daniel} \& \au{Rodr\'{\i}guez, Francisco}} \yr{2008}
@@ -24,5 +47,13 @@
 {\sc \au{Oxenham, John}} \yr{2002}  \bt{{Skills and Literacy Training for
   Better Livelihoods : A Review of Approaches and Experiences}}. World Bank
   Publications - Reports 9767.  \org{The World Bank Group}.
+
+\bibitem[See-To {\em et~al.\/}(2012)See-To, Papagiannidis \&
+  Cho]{SEETO20121484}
+{\sc \au{See-To, Eric~W.K.}, \au{Papagiannidis, Savvas} \& \au{Cho, Vincent}}
+  \yr{2012}  \at{User experience on mobile video appreciation: How to engross
+  users and to enhance their enjoyment in watching mobile video clips}.
+  \jt{Technological Forecasting and Social Change}  \bvol{79}~(8),
+  \pg{1484--1494}.
 
 \end{thebibliography}

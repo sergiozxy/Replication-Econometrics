@@ -11,6 +11,7 @@
 \usepackage[a4paper, margin=1.5cm]{geometry}
 \usepackage{booktabs}
 \usepackage{hyperref}
+\usepackage{mathptmx}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,     % color of internal links (change box color with linkbordercolor)
@@ -31,7 +32,9 @@
 \title{Econometrics Replication}
 
 \author{Xuyuan Zhang\aff{1}
-  \corresp{\email{\href{mailto:zxuyuan@umich.edu}{zxuyuan@umich.edu}}}}
+  \corresp{\email{\href{mailto:zxuyuan@umich.edu}{zxuyuan@umich.edu}}}
+  \thanks{Note that all the relevant codes and details of replication this PDF file is available at github. This repository will be modified to delete the instructions and only contain the latex code and stata, python code with the data. Link: \href{https://github.com/sergiozxy/Replication-Econometrics}{https://github.com/sergiozxy/Replication-Econometrics}.}
+  }
 
 \affiliation{\aff{1}Department of Economics, University of Michigan, Ann Arbor, USA.}
 
@@ -43,36 +46,83 @@
 
 \section{Introduction} \label{sec:introduction}
 
-Previous literature has consistently shown that adult education programs play a key role in reducing poverty rates in various regions \citep{RePEc:wbk:wboper:9767, doi:10.1086/590461}, but previous designs suffer from irrelevance to daily work and high dropout rates. Therefore, it is necessary to think of a way to directly help adults gain the benefits of education. This paper proposes an innovative strategy to empower adults by teaching them to use mobile phones to acquire essential skills.
+\subsection{Mechanism of the Effect and Literature Review} \label{subsec:literature}
 
-Recent years have witnessed the widespread of mobile phones and the proliferation of mobile phones and their services has played a significant role in shaping economic behaviors.  highlights the substantial influence of mobile phone services on farmer's .
+Previous literature has consistently shown that adult education programs play a key role in reducing poverty rates in various regions \citep{RePEc:wbk:wboper:9767, doi:10.1086/590461}, but previous designs suffer from irrelevance to daily work and high dropout rates. Therefore, it is necessary to think of a way to directly help adults gain the benefits of education. This paper proposes an innovative strategy to empower adults by teaching them to use mobile phones to acquire essential skills. Compared to other educational programs, teaching people how to use cell phones effectively has several advantages.
 
+First of all, cell phone use can help improve learning ability in various fields, although this effect is short-lived \citep{10.1257/pol.1.1.52}. Second, cell phones is a good access to multiple knowledge online, so people who have access to cell phones can self-study which is far better for students to improve their long-term study score \citep{SEETO20121484}.  Moreover, Cell phone use is a good way to get information about employment opportunities and they are more likely to find a job\citep{GrzybowskiPatel+2023+85+114}, and therefore, people will find the program of great use in daily life. Moreover, for farmers, mobile phones are a good access to get accurate and timely agricultural information to avoid the reduction of grain price dispersion, which has been demonstrated by \citep{10.1257/app.2.3.46}. Other influential effect are also discussed by \citep{GONZALEZ2024103228, 10.1257/jep.24.3.207, CHENG2015109}.
 
-reduction in grain price dispersion, which has been demonstrated by \citep{10.1257/app.2.3.46} highlights that mobile 
+\subsection{Experimental design} \label{subsec:design}
 
+This paper uses randomized controlled trials (RCTs), which are widely used in economic design and are a common practice to avoid bias or intentional manipulation of results. By selecting 113 eligible villages in Niger, Dosso, and Zinder and randomly assigning cohorts of 58 villages with ABC, this study begins a five-period panel data. The ABC villages follow the same curriculum as the non-ABC villages, but the ABC policy is introduced three months later to help the students learn.
 
- Mobile phone technology 
-could also affect returns to education by allowing households to use the technology 
-for other purposes, such as obtaining price and labor market information, and facilitating informal private transfers (Aker and Mbiti 2010).
+Only membership in a formal or informal producer association at the village level, illiteracy as confirmed by an on-site diagnostic test, and willingness to participate in the program were required to implement the cohort. If there were more than 50 eligible applicants in a village, students were randomly selected from all eligible applicants through a public lottery. To measure student progress, writing and math tests were administered in baseline surveys before the program began, and follow-up surveys were administered twice during the program (June 2009 and June 2010) and seven months after classes ended (January 2010 and January 2011).
 
-The return of \citep{GONZALEZ2024103228} 
-
-\subsection{Experiment Design} \label{subsec:ExperimentDesign}
-
-Randomized controlled trials (RCT) has been widely used in economic design. This study use
 \section{Main Result} \label{sec:mainresult}
 
-\section{}
+\subsection{Baseline Specification} \label{subsec:baseline}
 
-\begin{table}[htb]
+Before we introduce the main result, we first need to check whether the difference-in-difference assumption is valid.
+
+\begin{equation}
+  Test_{ivt} = \beta_0 + \beta_1 ABC_{v} + \bf{X}_{iv}^\prime + \tau_{vt} + \varepsilon_{ivt}, \label{eq:baseline}
+\end{equation}
+
+where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t$, $ABC_{ivt}$ is a dummy variable indicating whether the individual has a mobile phone, $\bf{X}_{iv}^\prime$ is a vector of individual characteristics, $\tau_{vt}$ is subdistrict fixed effect and $\varepsilon_{ivt}$ is the error term. The result is reported in Table \ref{tab:baseline} and the standard error is clustered at each village level.
+
+The result shows that the test score is not significantly higher in the treatment group than in the control group, which indicates that the RCT assumption is valid. This is because if the random experiment is not valid, the coefficient of $\beta_1$ will be statistically significant, which means that selecting which group to be the treatment group in our experiment is not random.
+
+\subsection{Contamination Check} \label{subsec:contamination}
+
+Apart from testing the direct effect of $ABC_{v}$ on the test score, we also need to check whether there is any contamination between the treatment and control groups. The contamination check is to test whether the treatment group and the control group are significantly different in terms of household and teacher characteristics. To correct for potential , we use the 
+
+The summary statistics is reported in Table \ref{tab:contamination}. We can see that before the program starts, all of the variables are not significantly different between the control group and the treatment group, indicates that there is no pre-treatment contamination. 
+
+
+\subsection{Difference-in-Difference Estimation} \label{subsec:did}
+
+We consider the 
+
+\begin{equation}
+ Test_{ivt} = \beta_0 + \beta_1 ABC_{v} + \beta_2 Post_{v} + \beta_3 (ABC_v \times Post_v) + \bf{X}_{iv}^\prime + \delta cohort_{v} + \theta_R + \varepsilon_{ivt} \label{eq:did_baseline}  
+\end{equation}
+
+where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t$, $ABC_v$ is a dummy variable indicating whether the village is in the treatment group, $Post_v$ is a dummy variable indicating whether the test is conducted after the program, $\bf{X}_{iv}^\prime$ is a vector of individual characteristics, $cohort_{v}$ is a dummy variable indicating the cohort, $\theta_R$ is a randomization error, and $\varepsilon_{ivt}$ is the error term.
+
+
+
+
+\section{Conclusion}
+
+
+\bibliographystyle{jfm}
+% Note the spaces between the initials
+\bibliography{jfm-instructions}
+
+
+\newpage
+
+\begin{table}
   \begin{center}
-    \begin{scriptsize}
-    \caption{contamination of the randomization Check}
+    \begin{footnotesize}
+    \caption{Difference in Test Scores between the Treatment and Control Groups}
+    \label{tab:baseline}
+    \input{Tables/baseline_check.tex}
+
+    Note: we also include subdistrict fixed effect in each regression model.
+    \end{footnotesize}
+  \end{center}
+\end{table}
+
+\begin{table}
+  \begin{center}
+    \begin{footnotesize}
+    \caption{Household and teacher characteristics in the treatment and control regions}
     \label{tab:contamination}
     \input{Tables/contamination_of_the_randomization.tex}
 
     Notes: * significant at the 10 percent level; ** significant at the 5 percent level; *** significant at the 1 percent level.
-    \end{scriptsize}
+    \end{footnotesize}
   \end{center}
 \end{table}
 
@@ -80,11 +130,7 @@ Randomized controlled trials (RCT) has been widely used in economic design. This
 
 \newpage
 
-\bibliographystyle{jfm}
-% Note the spaces between the initials
-\bibliography{jfm-instructions}
 
-\newpage
 \appendix
 
 \section{}\label{appA}

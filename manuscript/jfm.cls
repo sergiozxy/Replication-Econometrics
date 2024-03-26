@@ -306,21 +306,21 @@
   \fi
   \@startsection {section}{1}{\z@}
     {\ifflm@rapids 12\p@ \@plus 6\p@ \@minus 2\p@\else
-     20\p@ \@plus 6\p@ \@minus 2\p@\fi}
+    12\p@ \@plus 6\p@ \@minus 2\p@\fi}
     {3\p@}
     {\normalfont\large\ifflm@rapids\normalsize\fi\fontswitch\bfseries\@raggedright}%
 }
 
 \newcommand\subsection{%
   \@startsection{subsection}{2}{\z@}
-    {12\p@ \@plus 3\p@ \@minus 3\p@}
+    {12\p@ \@plus 4\p@ \@minus 3\p@}
     {3\p@}
     {\normalfont\normalsize\itshape\@raggedcenter}%
 }
 
 \newcommand\subsubsection{%
   \@startsection{subsubsection}{3}{\z@}
-    {9\p@ \@plus 3\p@ \@minus 3\p@}
+    {12\p@ \@plus 4\p@ \@minus 3\p@}
     {3\p@}
     {\raggedright\normalfont\normalsize\itshape}%
 }

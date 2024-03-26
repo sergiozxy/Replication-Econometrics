@@ -1,0 +1,26 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{literacy}&\multicolumn{1}{c}{literacy}&\multicolumn{1}{c}{math}&\multicolumn{1}{c}{math}\\
+\midrule
+abc         &     -0.0231         &     -0.0291         &     -0.0593         &     -0.0671         \\
+            &    (0.0400)         &    (0.0420)         &    (0.0469)         &    (0.0495)         \\
+\addlinespace
+female      &                     &      -0.133\sym{***}&                     &      -0.218\sym{***}\\
+            &                     &    (0.0348)         &                     &    (0.0375)         \\
+\addlinespace
+age         &                     &    -0.00236\sym{**} &                     &    -0.00153         \\
+            &                     &   (0.00104)         &                     &   (0.00104)         \\
+\addlinespace
+dosso       &                     &       0.359\sym{***}&                     &       0.197\sym{**} \\
+            &                     &    (0.0843)         &                     &    (0.0762)         \\
+\midrule
+\(N\)       &        5982         &        5675         &        5982         &        5675         \\
+R-squared   &      0.0224         &      0.0278         &      0.0199         &      0.0339         \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}
