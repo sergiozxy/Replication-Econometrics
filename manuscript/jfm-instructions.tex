@@ -12,6 +12,7 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{mathptmx}
+\usepackage{pdfpages}
 \usepackage{amsmath}
 \hypersetup{
     colorlinks=true,
@@ -202,4 +203,6 @@ This appendix contains the code that is used to replicate the main result of the
 
 \lstinputlisting[language=Stata, numbers=none]{../codes/replication-code.do}
 
+
+\includepdf[pages=-]{log_file/Replication_v2.log.pdf}
 \end{document}
