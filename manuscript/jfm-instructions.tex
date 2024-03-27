@@ -135,10 +135,10 @@ The summary statistics is reported in Table \ref{tab:contamination}. We can see 
 To carry out our formal analysis, we consider the following setting:
 
 \begin{equation}
- Test_{ivt} = \beta_0 + \beta_1 ABC_{v} + \beta_2 Post_{v} + \beta_3 (ABC_v \times Post_v) + \bf{X}_{iv}^\prime + \delta cohort_{v} + \theta_R + \varepsilon_{ivt} \label{eq:did_baseline}  
+ Test_{ivt} = \beta_0 + \beta_1 ABC_{v} + \beta_2 Post_{v} + \beta_3 (ABC_v \times Post_v) + \bf{X}_{iv}^\prime + \delta cohort_{v} + \varepsilon_{ivt} \label{eq:did_baseline}  
 \end{equation}
 
-where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t$, $ABC_v$ is a dummy variable indicating whether the village is in the treatment group, $Post_v$ is a dummy variable indicating whether the test is conducted after the program, $\bf{X}_{iv}^\prime$ is a vector of individual characteristics, $cohort_{v}$ is a dummy variable indicating the cohort, $\theta_R$ is a randomization error, and $\varepsilon_{ivt}$ is the error term. The $ABC_v \times Post_v$ is our DID estimator, which represents the effect after the policy's implementation.
+where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t$, $ABC_v$ is a dummy variable indicating whether the village is in the treatment group, $Post_v$ is a dummy variable indicating whether the test is conducted after the program, $\bf{X}_{iv}^\prime$ is a vector of individual characteristics, $cohort_{v}$ is a dummy variable indicating the cohort, and $\varepsilon_{ivt}$ is the error term. The $ABC_v \times Post_v$ is our DID estimator, which represents the effect after the policy's implementation.
 
 First of all, our DID estimation satisfies the condition of Irreversibility of Treatment. Moreover, the parallel trend condition also holds based on what we have discussed on \ref{subsec:baseline} and \ref{subsec:contamination}. Therefore, we can conclude that our estimated effect $ATT$ is consistent \citep{CALLAWAY2021200}. The result is shown at Table \ref{tab:did_result}.
 
@@ -161,7 +161,7 @@ We first consider the influence of geography on this policy, as Dosso is a regio
 \begin{equation}
   \begin{aligned}
   Test_{ivt} & = \beta_0 + \beta_1 ABC_{v} + \beta_2 Post_{v} + \beta_3 Region_{v} + \beta_4 (ABC_v \times Post_v) + \beta_5 (ABC_v \times Effect_{ivt}) \\
-  & + \beta_6 (Post_v \times Effect_{ivt}) + \beta_7 (ABC_v \times Effect_{ivt} \times Post_v) + \bf{X}_{iv}^\prime + \delta cohort_{v} + \theta_R + \varepsilon_{ivt}  \label{eq:ddd}
+  & + \beta_6 (Post_v \times Effect_{ivt}) + \beta_7 (ABC_v \times Effect_{ivt} \times Post_v) + \bf{X}_{iv}^\prime + \delta cohort_{v} + \varepsilon_{ivt}  \label{eq:ddd}
   \end{aligned}
 \end{equation}
 
