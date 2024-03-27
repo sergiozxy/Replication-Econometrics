@@ -1,6 +1,26 @@
+*** Program name: Sample Do File.do
+
+* NOTE:  Whenever a line begins with an asterisk, STATA ignores the whole line - this is just a comment/note.
+capture log close
+clear /* The 'clear' command gets rid of all data in memory*/
+set memory 60000 /* Allocate 60MB memory to Stata */
+set matsize 150
+set more 1
+
+* This line tells Stata where the files are located. USE "" if your folder names contain spaces.
+* THIS IS THE ONLY LINE YOU NEED TO CHANGE. 
+
+* NOTE:  The next lines set up the .log file.  It will contain all of the output
+* from this program when it is run. It will be saved in the same directory as the
+* program and will be replaced with each new run. I have called the log-file ProblemSet1. 
+log using Replication.log, replace
+
 cd "E:\umich\Replication-Econometrics\02. Datasets"
 
 use "ABChousehold.dta", clear
+
+/***************TABLE 0 *******************/
+// Export the label and variable name
 
 label variable age "age"
 // this code is to export the name and label for further use. (make table in python)
@@ -11,8 +31,24 @@ preserve
     export excel using variable__label_correspondence.xlsx, replace first(var)
 restore
 
-	
-/* Table 1 */
+use "ABCteacher.dta", clear
+
+preserve
+    describe, replace clear
+    list
+    export excel using variable__label_correspondence_teacher.xlsx, replace first(var)
+restore
+
+use "ABCtestscore.dta", clear
+
+preserve
+    describe, replace clear
+    list
+    export excel using variable__label_correspondence_test_score.xlsx, replace first(var)
+restore
+
+/***************TABLE 1 *******************/
+// We test whether the treatment group is assigned via non-randomization manipulation
 
 use "ABCtestscore.dta", clear
 
@@ -36,9 +72,10 @@ star(* 0.1 ** 0.05 *** 0.01) ///
 se ///
 scalars("r2 R-squared") ///
  replace
- 
 
 clear
+
+/***************TABLE 2 *******************/
 
 use "ABChousehold.dta", clear
 
@@ -63,10 +100,7 @@ logout, save("ttest_with_result") dta replace: ttable3 $Pre_Test_Variables, by(a
 logout, save("ttest_with_result_mean_std") dta replace: tabstat $Pre_Test_Variables, by(abc) stat(mean sd) nototal long col(stat)
 */
 
-
 // report the mean and standard deviation
-
-estpost tabstat $Pre_Test_Variables, by(abc) stat(mean sd) nototal col(stat)
 
 logout, save(ttest_with_result_mean_std) dta replace: tabstat $Pre_Test_Variables, by(abc) stat(mean sd) nototal long col(stat) label
 
@@ -76,14 +110,6 @@ foreach i in $Pre_Test_Variables{
 	xi: reg `i' abc i.avcode, robust cluster(codev)
 	outreg2 abc using "Table1_PanelA", dec(2) append dta ctitle ("`var'")	nocons
 }
-
-use "ABCteacher.dta", clear
-
-preserve
-    describe, replace clear
-    list
-    export excel using variable__label_correspondence_teacher.xlsx, replace first(var)
-restore
 
 use "ABCtestscore.dta", clear
 
@@ -98,7 +124,6 @@ drop if _m==2
 
 logout, save(Table1_PanelB_mean_std) dta replace: tabstat levelno teacherage femaleteacher local, by(abc) stat(mean sd) nototal long col(stat)
 
-
 foreach i in levelno teacherage femaleteacher local{
 	bys abc: su `i' 
 	reg `i' abc, robust cluster(codev)
@@ -107,14 +132,7 @@ foreach i in levelno teacherage femaleteacher local{
 	}
 clear
 
-
 use "ABCtestscore.dta", clear
-
-preserve
-    describe, replace clear
-    list
-    export excel using variable__label_correspondence_test_score.xlsx, replace first(var)
-restore
 
 logout, save(Table1_PanelC_mean_std) dta replace: tabstat writez1 mathz1, by(abc) stat(mean sd) nototal long col(stat)
 
@@ -128,6 +146,7 @@ clear
 
 // now run the python code in jupyter notebook to generate the latex table in paper.
 
+/***************TABLE 3 *******************/
 /* Difference-In-Difference Estimation*/
 
 use "ABCtestscore.dta", clear
@@ -169,16 +188,43 @@ star(* 0.1 ** 0.05 *** 0.01) ///
 se ///
 scalars("r2 R-squared") ///
  replace
+ 
+/***************TABLE 4 *******************/
+/* Difference-In-Difference-In-Difference Estimation*/
+
+use "ABCtestscore.dta", clear
+
+keep if round==1|round==2|round==4
+
+generate agesq = age * age
+capture drop region regionpost regionabc abcregionpost
+gen region=dosso==1
+gen regionpost=region*post
+gen regionabc=region*abc
+gen abcregionpost=regionabc*post
+	
+reg writezscore abcpost abc post region regionpost regionabc abcregionpost cohort2009 female age agesq i.avc, robust cluster(codev)  
+est store ddd_1
+
+reg mathzscore abcpost abc post region regionpost regionabc abcregionpost cohort2009 female age agesq i.avc, robust cluster(codev)  
+est store ddd_2
+
+reg writezscore abc female post femalepost femaleabc abcpost abcfemalepost cohort2009 age agesq i.avc, robust cluster(codev)
+est store ddd_3
+
+reg mathzscore abc female post femalepost femaleabc abcpost abcfemalepost cohort2009 age agesq i.avc, robust cluster(codev)
+est store ddd_4
+
+esttab ddd_* ///
+ using ../manuscript/Tables/ddd.tex, ///
+style(tex) booktabs keep(abc female post femalepost femaleabc abcpost abcfemalepost cohort2009 age agesq) ///
+mtitle("literacy" "math" "literacy" "math") ///
+star(* 0.1 ** 0.05 *** 0.01) ///
+se ///
+scalars("r2 R-squared") ///
+ replace
 
 
+log close
 
-
-
-
-
-
-
-// we also conduct Figure 4.  Impact of the ABC Program on Test Score Achievements
-
-
-clear
+exit, clear

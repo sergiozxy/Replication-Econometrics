@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \def\au#1{#1} \def\ed#1{#1} \def\yr#1{#1}\def\at#1{#1}\def\jt#1{\textit{#1}}
   \def\bt#1{#1}\def\bvol#1{\textbf{#1}} \def\vol#1{#1} \def\pg#1{#1}
@@ -61,5 +61,11 @@
   users and to enhance their enjoyment in watching mobile video clips}.
   \jt{Technological Forecasting and Social Change}  \bvol{79}~(8),
   \pg{1484--1494}.
+
+\bibitem[Wyche \& Steinfield(2016)]{doi:10.1080/02681102.2015.1048184}
+{\sc \au{Wyche, Susan} \& \au{Steinfield, Charles}} \yr{2016}  \at{Why don't
+  farmers use cell phones to access market prices? technology affordances and
+  barriers to market information services adoption in rural kenya}.
+  \jt{Information Technology for Development}  \bvol{22}~(2),  \pg{320--333}.
 
 \end{thebibliography}

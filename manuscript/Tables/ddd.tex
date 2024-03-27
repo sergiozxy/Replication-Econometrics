@@ -1,0 +1,44 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{literacy}&\multicolumn{1}{c}{math}&\multicolumn{1}{c}{literacy}&\multicolumn{1}{c}{math}\\
+\midrule
+abcpost     &       0.188         &       0.170         &       0.175\sym{*}  &       0.259\sym{**} \\
+            &     (0.155)         &     (0.136)         &    (0.0994)         &     (0.106)         \\
+\addlinespace
+abc         &     -0.0645         &     -0.0920         &     -0.0364         &      -0.129\sym{*}  \\
+            &    (0.0709)         &    (0.0667)         &    (0.0616)         &    (0.0769)         \\
+\addlinespace
+post        &     -0.0647         &     -0.0723         &       0.237\sym{***}&      0.0926         \\
+            &     (0.110)         &     (0.109)         &    (0.0637)         &    (0.0791)         \\
+\addlinespace
+cohort2009  &      0.0761         &       0.150\sym{***}&      0.0762         &       0.149\sym{***}\\
+            &    (0.0470)         &    (0.0444)         &    (0.0469)         &    (0.0446)         \\
+\addlinespace
+female      &      -0.421\sym{***}&      -0.377\sym{***}&      -0.142\sym{***}&      -0.277\sym{***}\\
+            &    (0.0323)         &    (0.0327)         &    (0.0489)         &    (0.0599)         \\
+\addlinespace
+age         &     0.00330         &     0.00292         &     0.00312         &     0.00294         \\
+            &   (0.00419)         &   (0.00440)         &   (0.00417)         &   (0.00441)         \\
+\addlinespace
+agesq       &   -0.000173\sym{***}&   -0.000155\sym{***}&   -0.000171\sym{***}&   -0.000155\sym{***}\\
+            & (0.0000507)         & (0.0000554)         & (0.0000506)         & (0.0000553)         \\
+\addlinespace
+femalepost  &                     &                     &      -0.494\sym{***}&      -0.237\sym{***}\\
+            &                     &                     &    (0.0637)         &    (0.0668)         \\
+\addlinespace
+femaleabc   &                     &                     &     -0.0360         &      0.0629         \\
+            &                     &                     &    (0.0685)         &    (0.0759)         \\
+\addlinespace
+abcfemalepost&                     &                     &      0.0514         &   -0.000982         \\
+            &                     &                     &    (0.0920)         &    (0.0990)         \\
+Subdistrict Fixed Effect & Y & Y & Y & Y \\\midrule
+\(N\)       &       12823         &       12840         &       12823         &       12840         \\
+R-squared   &      0.0867         &      0.0906         &      0.0995         &      0.0923         \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

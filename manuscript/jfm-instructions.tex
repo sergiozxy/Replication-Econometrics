@@ -127,13 +127,34 @@ First of all, our DID estimation satisfies the condition of Irreversibility of T
 
 From the table, we can see that for column (1) and (2), the coefficient of $ABC_v \times Post_v$ is positive and significant at the 1 percent level, which means that the ABC policy has a positive effect on the test score. The magnitude of the effect is 0.199 and 0.250, which means that the ABC policy can increase the test score by 19.9\% to 25.0\% points. This result is consistent with the previous literature, which shows that the ABC policy can improve the test score of students. In column (3) and (4) we include controls in the model, and we find that the effect is still significant at the 1 percent level, which means that the effect is robust to the inclusion of controls. Furthermore, the estimated value is close to the previous result, which means that the effect is robust to the inclusion of controls. However, it is likely the relationship between age and test scores is non-linear, therefore, we also include the quadratic term of age in the model. The result is shown in column (5) and (6), and we find that the effect is still significant at the 1 percent level, which means that the effect is robust to the inclusion of the quadratic term of age. However, the magnitude of the effect is slightly higher than the previous result, which means that the effect is sensitive to the inclusion of the quadratic term of age. The change may be due to the fact that math is pretty hard for the old people to learn, and the quadratic term of age can capture this effect, but the overall estimated result is the same. Lastly, we also include a village fixed effect in the model, and the result is shown in column (7) and (8). We find that the effect is still significant at the 1 percent level, which means that the effect is robust to the inclusion of the village fixed effect. The magnitude of the effect is 0.198 and 0.258, which is consistent with the baseline DID estimation.
 
-\section{Robustness Check} \label{sec:robustness_check}
+\section{Heterogenous Effect of ABC program} \label{sec:heterogenous}
 
+We first consider the influence of geography on this policy, as Dosso is a region closer to the capital city, its farmers will be more inclined to go to the capital city market to trade, so they will be more active in using mobile phones because they can directly help them to get price information \citep{doi:10.1080/02681102.2015.1048184} Thus, we can use the DDD method to estimate the heterogeneous effect of geography on this policy. In addition to this, we can also consider the gender difference, because men in rural areas are the ones who mainly trade with the outside world, they will be more inclined to communicate with people in neighboring villages and towns, so men will be more inclined to use mobile phones to get more knowledge information. For this reason, we consider the DDD model further on equation \eqref{eq:did_baseline} and the result is shown at Table \ref{tab:ddd}.
 
+\begin{equation}
+  \begin{aligned}
+  Test_{ivt} & = \beta_0 + \beta_1 ABC_{v} + \beta_2 Post_{v} + \beta_3 Region_{v} + \beta_4 (ABC_v \times Post_v) + \beta_5 (ABC_v \times Effect_{ivt}) \\
+  & + \beta_6 (Post_v \times Effect_{ivt}) + \beta_7 (ABC_v \times Effect_{ivt} \times Post_v) + \bf{X}_{iv}^\prime + \delta cohort_{v} + \theta_R + \varepsilon_{ivt}  \label{eq:ddd}
+  \end{aligned}
+\end{equation}
+
+where $Effect_{ivt}$ is the dummy variable indicating the effect of the regional spatial effect and gender inequality effect.
+
+\begin{table}
+  \begin{center}
+    \begin{footnotesize}
+    \caption{DDD Estimation of ABC policy}
+    \label{tab:ddd}
+    \input{Tables/ddd.tex}
+    \end{footnotesize}
+  \end{center}
+\end{table}
+
+From the Table we can see the coefficient $\beta_7$ is not significant at 10\% percent, which means that neither the regional spatial effect nor the gender inequality effect is significant, which means that the ABC policy has the same effect on different regions and different groups. Therefore, we can conclude that our estimated effect is consistent and robust.
 
 \section{Conclusion} \label{sec:conclusion}
 
-This paper estimates the effect of the introduce of mobile phone on the test score of adult training in Niger, Dosso, and Zinder. We find that the introduction has a positive effect on the test score of students. The magnitude of the effect is 0.199 and 0.250, which means that the introduction of mobile phone usage can increase the test score by 19.9\% to 25.0\% points. The effect is robust to the inclusion of controls, the quadratic term of age, and the village fixed effect.
+This paper estimates the effect of the introduce of mobile phone on the test score of adult training in Niger, Dosso, and Zinder. We find that the introduction has a positive effect on the test score of students. The magnitude of the effect is 0.199 and 0.250, which means that the introduction of mobile phone usage can increase the test score by 19.9\% to 25.0\% points. The effect is robust to the inclusion of controls, the quadratic term of age, and the village fixed effect. Moreover, we test the hypothesis of the heterogeneous effect of geography and different gender groups, and we find that the effect is not significant, which means that the ABC policy has the same effect on different regions and different groups. Therefore, we can conclude that our estimated effect is consistent and robust.
 
 \bibliographystyle{jfm}
 % Note the spaces between the initials
@@ -157,6 +178,6 @@ This paper estimates the effect of the introduce of mobile phone on the test sco
 
 This appendix contains the code that is used to replicate the main result of the paper. The Appendix \ref{appB} contains the detailed executed log file in the operation.
 
-\section{}\label{appB}
+
 
 \end{document}
