@@ -13,9 +13,14 @@ set more 1
 * NOTE:  The next lines set up the .log file.  It will contain all of the output
 * from this program when it is run. It will be saved in the same directory as the
 * program and will be replaced with each new run. I have called the log-file ProblemSet1. 
-log using Replication.log, replace
 
-cd "E:\umich\Replication-Econometrics\02. Datasets"
+cd "C:\Users\zxuyuan\Downloads\02. Datasets"
+
+log using Replication_v2.log, replace
+
+// before using the stata do file you need to install
+// esttab: ssc install estout
+// outreg2: ssc install outreg2
 
 use "ABChousehold.dta", clear
 
@@ -73,8 +78,6 @@ se ///
 scalars("r2 R-squared") ///
  replace
 
-clear
-
 /***************TABLE 2 *******************/
 
 use "ABChousehold.dta", clear
@@ -102,11 +105,11 @@ logout, save("ttest_with_result_mean_std") dta replace: tabstat $Pre_Test_Variab
 
 // report the mean and standard deviation
 
-logout, save(ttest_with_result_mean_std) dta replace: tabstat $Pre_Test_Variables, by(abc) stat(mean sd) nototal long col(stat) label
+tabstat $Pre_Test_Variables, by(abc) stat(mean sd) nototal long col(stat)
+outreg2 using ttest_with_result_mean_std.dta, replace
+
 
 foreach i in $Pre_Test_Variables{
-	bys abc: su `i'
-	reg `i' abc, robust cluster(codev)
 	xi: reg `i' abc i.avcode, robust cluster(codev)
 	outreg2 abc using "Table1_PanelA", dec(2) append dta ctitle ("`var'")	nocons
 }
@@ -122,27 +125,24 @@ merge 1:m codev using "ABCteacher.dta"
 tab _m
 drop if _m==2
 
-logout, save(Table1_PanelB_mean_std) dta replace: tabstat levelno teacherage femaleteacher local, by(abc) stat(mean sd) nototal long col(stat)
+tabstat levelno teacherage femaleteacher local, by(abc) stat(mean sd) nototal long col(stat)
+outreg2 using Table1_PanelB_mean_std.dta, replace
 
 foreach i in levelno teacherage femaleteacher local{
-	bys abc: su `i' 
-	reg `i' abc, robust cluster(codev)
 	xi: reg `i' abc i.avcode, robust cluster(codev)
 	outreg2 abc using "Table1_PanelB", dec(2) append dta ctitle ("`var'")	nocons
 	}
-clear
 
 use "ABCtestscore.dta", clear
 
-logout, save(Table1_PanelC_mean_std) dta replace: tabstat writez1 mathz1, by(abc) stat(mean sd) nototal long col(stat)
+tabstat writez1 mathz1, by(abc) stat(mean sd) nototal long col(stat)
+outreg2 using Table1_PanelC_mean_std.dta, replace
+
 
 foreach i of varlist writez1 mathz1 {
-	bys abc: su `i'
 	xi: reg `i' abc i.avc, cluster(codev)
 	outreg2 abc using "Table1_PanelC", dec(2) append dta ctitle ("`var'")	nocons
 	}
-
-clear
 
 // now run the python code in jupyter notebook to generate the latex table in paper.
 
@@ -226,5 +226,4 @@ scalars("r2 R-squared") ///
 
 
 log close
-
 exit, clear
