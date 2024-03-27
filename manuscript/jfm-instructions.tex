@@ -115,12 +115,25 @@ where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t
 
 First of all, our DID estimation satisfies the condition of Irreversibility of Treatment. Moreover, the parallel trend condition also holds based on what we have discussed on \ref{subsec:baseline} and \ref{subsec:contamination}. Therefore, we can conclude that our estimated effect $ATT$ is consistent \citep{CALLAWAY2021200}. The result is shown at Table \ref{tab:did_result}.
 
-From the table, we can see that
+\begin{table}
+  \begin{center}
+    \begin{footnotesize}
+    \caption{Difference-in-Difference Estimation of ABC policy}
+    \label{tab:did_result}
+    \input{Tables/did_result.tex}
+    \end{footnotesize}
+  \end{center}
+\end{table}
+
+From the table, we can see that for column (1) and (2), the coefficient of $ABC_v \times Post_v$ is positive and significant at the 1 percent level, which means that the ABC policy has a positive effect on the test score. The magnitude of the effect is 0.199 and 0.250, which means that the ABC policy can increase the test score by 19.9\% to 25.0\% points. This result is consistent with the previous literature, which shows that the ABC policy can improve the test score of students. In column (3) and (4) we include controls in the model, and we find that the effect is still significant at the 1 percent level, which means that the effect is robust to the inclusion of controls. Furthermore, the estimated value is close to the previous result, which means that the effect is robust to the inclusion of controls. However, it is likely the relationship between age and test scores is non-linear, therefore, we also include the quadratic term of age in the model. The result is shown in column (5) and (6), and we find that the effect is still significant at the 1 percent level, which means that the effect is robust to the inclusion of the quadratic term of age. However, the magnitude of the effect is slightly higher than the previous result, which means that the effect is sensitive to the inclusion of the quadratic term of age. The change may be due to the fact that math is pretty hard for the old people to learn, and the quadratic term of age can capture this effect, but the overall estimated result is the same. Lastly, we also include a village fixed effect in the model, and the result is shown in column (7) and (8). We find that the effect is still significant at the 1 percent level, which means that the effect is robust to the inclusion of the village fixed effect. The magnitude of the effect is 0.198 and 0.258, which is consistent with the baseline DID estimation.
 
 \section{Robustness Check} \label{sec:robustness_check}
 
+
+
 \section{Conclusion} \label{sec:conclusion}
 
+This paper estimates the effect of the introduce of mobile phone on the test score of adult training in Niger, Dosso, and Zinder. We find that the introduction has a positive effect on the test score of students. The magnitude of the effect is 0.199 and 0.250, which means that the introduction of mobile phone usage can increase the test score by 19.9\% to 25.0\% points. The effect is robust to the inclusion of controls, the quadratic term of age, and the village fixed effect.
 
 \bibliographystyle{jfm}
 % Note the spaces between the initials

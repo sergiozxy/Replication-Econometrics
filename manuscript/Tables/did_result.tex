@@ -1,0 +1,34 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{8}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+            &\multicolumn{1}{c}{literacy}&\multicolumn{1}{c}{math}&\multicolumn{1}{c}{literacy}&\multicolumn{1}{c}{math}&\multicolumn{1}{c}{literacy}&\multicolumn{1}{c}{math}&\multicolumn{1}{c}{literacy}&\multicolumn{1}{c}{math}\\
+\midrule
+abc         &     -0.0511         &     -0.0952\sym{*}  &     -0.0551         &      -0.106\sym{*}  &     -0.0556         &      -0.106\sym{*}  &       0.200\sym{***}&       0.230\sym{***}\\
+            &    (0.0465)         &    (0.0548)         &    (0.0503)         &    (0.0594)         &    (0.0503)         &    (0.0593)         &    (0.0409)         &    (0.0424)         \\
+\addlinespace
+post        &    -0.00397         &    -0.00444         &    -0.00525         &     -0.0103         &    -0.00414         &    -0.00931         &     -0.0121         &     -0.0270         \\
+            &    (0.0587)         &    (0.0658)         &    (0.0599)         &    (0.0680)         &    (0.0599)         &    (0.0681)         &    (0.0602)         &    (0.0692)         \\
+\addlinespace
+abcpost     &       0.199\sym{**} &       0.250\sym{***}&       0.206\sym{**} &       0.264\sym{***}&       0.205\sym{**} &       0.263\sym{***}&       0.198\sym{**} &       0.258\sym{***}\\
+            &    (0.0880)         &    (0.0898)         &    (0.0881)         &    (0.0923)         &    (0.0881)         &    (0.0923)         &    (0.0901)         &    (0.0943)         \\
+\addlinespace
+age         &                     &                     &     -0.0100\sym{***}&    -0.00890\sym{***}&     0.00352         &     0.00347         &     0.00355         &     0.00147         \\
+            &                     &                     &   (0.00102)         &   (0.00107)         &   (0.00406)         &   (0.00436)         &   (0.00385)         &   (0.00408)         \\
+\addlinespace
+female      &                     &                     &      -0.423\sym{***}&      -0.378\sym{***}&      -0.420\sym{***}&      -0.375\sym{***}&      -0.420\sym{***}&      -0.374\sym{***}\\
+            &                     &                     &    (0.0325)         &    (0.0326)         &    (0.0321)         &    (0.0324)         &    (0.0319)         &    (0.0325)         \\
+\addlinespace
+agesq       &                     &                     &                     &                     &   -0.000176\sym{***}&   -0.000160\sym{***}&   -0.000173\sym{***}&   -0.000128\sym{**} \\
+            &                     &                     &                     &                     & (0.0000494)         & (0.0000550)         & (0.0000476)         & (0.0000508)         \\
+Region Dummy & N & N & Y & Y & Y & Y & N & N \\
+Village Fixed Effect & N & N & N & N & N & N & Y & Y \\
+Subdistrict Fixed Effect & N & N & Y & Y & Y & Y & N & N \\\midrule
+\(N\)       &       13402         &       13420         &       12823         &       12840         &       12823         &       12840         &       12823         &       12840         \\
+R-squared   &      0.0323         &      0.0387         &      0.0841         &      0.0824         &      0.0852         &      0.0834         &       0.131         &       0.139         \\
+\bottomrule
+\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

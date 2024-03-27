@@ -170,29 +170,11 @@ se ///
 scalars("r2 R-squared") ///
  replace
 
-// more test result based on Effects of the ABC Program by Year
 
 
-reg writezscore abcpost5m abcpost17m post5m  post17m abc age agesq female village_dum*, robust cluster(codev)
-est store heterogeneous_check_1
 
-reg writezscore abcpost5m abcpost17m post5m  post17m cohort2009 abc age agesq female village_dum*, robust cluster(codev)
-est store heterogeneous_check_2
 
-reg mathzscore abcpost5m abcpost17m post5m  post17m abc age agesq female village_dum*, robust cluster(codev)
-est store heterogeneous_check_3
 
-reg writezscore abcpost5m abcpost17m post5m  post17m cohort2009 abc age agesq female village_dum*, robust cluster(codev)
-est store heterogeneous_check_4
-
-esttab heterogeneous_check_* ///
- using ../manuscript/Tables/heterogenous_check.tex, ///
-style(tex) booktabs keep(abc post abcpost age agesq female) ///
-mtitle("literacy" "literacy" "math"  "math") ///
-star(* 0.1 ** 0.05 *** 0.01) ///
-se ///
-scalars("r2 R-squared") ///
- replace
 
 
 
