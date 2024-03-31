@@ -91,7 +91,8 @@ Only membership in a formal or informal producer association at the village leve
 
 \subsection{Baseline Specification} \label{subsec:baseline}
 
-Before we introduce the main result, we first need to check whether the difference-in-difference assumption is valid.
+Before we introduce the main result, we first need to check whether the difference-in-difference assumption is valid. This is because if our randomization assumption is violated in this study, then there is potential risk that treatment assignment is correlated with other variables that also affect the outcome. This correlation can lead to biased estimates of the treatment effect because it's unclear whether the outcome differences are due to the treatment or to these other variables. Furthermore, when participants select into treatment based on characteristics that also affect the outcome, it introduces selection bias. This means that the observed effect might be due not to the treatment, but to the characteristics that influenced the selection into treatment. Here, we first consider the following framework:
+
 
 \begin{equation}
   Test_{ivt} = \beta_0 + \beta_1 ABC_{v} + \bf{X}_{iv}^\prime + \tau_{vt} + \varepsilon_{ivt}, \label{eq:baseline}
@@ -141,7 +142,7 @@ To carry out our formal analysis, we consider the following setting:
 
 where $Test_{ivt}$ is the test score of individual $i$ in village $v$ at time $t$, $ABC_v$ is a dummy variable indicating whether the village is in the treatment group, $Post_v$ is a dummy variable indicating whether the test is conducted after the program, $\bf{X}_{iv}^\prime$ is a vector of individual characteristics, $cohort_{v}$ is a dummy variable indicating the cohort, and $\varepsilon_{ivt}$ is the error term. The $ABC_v \times Post_v$ is our DID estimator, which represents the effect after the policy's implementation.
 
-First of all, our DID estimation satisfies the condition of Irreversibility of Treatment. Moreover, the parallel trend condition also holds based on what we have discussed on \ref{subsec:baseline} and \ref{subsec:contamination}. Therefore, we can conclude that our estimated effect $ATT$ is consistent \citep{CALLAWAY2021200}. The result is shown at Table \ref{tab:did_result}.
+First of all, our DID estimation satisfies the condition of Irreversibility of Treatment. Furthermore, The parallel trend hypothesis in the DID analysis of variance assumes that in the absence of treatment, the treatment and control groups would have followed the same trend over time, and therefore any post-treatment effect could be attributed to the treatment effect. From \ref{subsec:baseline} and \ref{subsec:contamination}, we can see that before the treatment, the two groups follow the same trend. Therefore, we can conclude that our estimated effect $ATT$ is consistent \citep{CALLAWAY2021200}. The result is shown at Table \ref{tab:did_result}.
 
 \begin{table}
   \begin{center}

@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex jfm-instructions"] 1711847706 "jfm-instructions.aux" "jfm-instructions.bbl" "jfm-instructions" 1711847707
+["bibtex jfm-instructions"] 1711850998 "jfm-instructions.aux" "jfm-instructions.bbl" "jfm-instructions" 1711850999
   "./jfm.bst" 1711720333 31797 4905f5a36c36e08bc982133b3dc1d7d2 ""
-  "jfm-instructions.aux" 1711847707 5220 32ea9c827cebdcbe0ac5dd2e757988e3 "pdflatex"
+  "jfm-instructions.aux" 1711850999 5220 4b449eecdbaf92e778e506086aaa2872 "pdflatex"
   "jfm-instructions.bib" 1711720333 11676 445f8be94c26d886846f979d3c73a7a0 ""
   (generated)
   "jfm-instructions.bbl"
   "jfm-instructions.blg"
-["pdflatex"] 1711847706 "/home/xuyuan/Desktop/ECON 504/Replication-Econometrics/manuscript/jfm-instructions.tex" "jfm-instructions.pdf" "jfm-instructions" 1711847707
+["pdflatex"] 1711850998 "/home/xuyuan/Desktop/ECON 504/Replication-Econometrics/manuscript/jfm-instructions.tex" "jfm-instructions.pdf" "jfm-instructions" 1711850999
   "../codes/replication-code.do" 1711720333 7338 7edd3bbf8659fe79d3955720e989d95f ""
   "/etc/texmf/web2c/texmf.cnf" 1709863417 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/xuyuan/Desktop/ECON 504/Replication-Econometrics/manuscript/jfm-instructions.tex" 1711847705 15278 58f40d7efa9c0f0b25345e3fb5d7501d ""
+  "/home/xuyuan/Desktop/ECON 504/Replication-Econometrics/manuscript/jfm-instructions.tex" 1711850997 16259 b2a221f02447cc164d12e567a4475b93 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -139,10 +139,10 @@
   "Tables/contamination_of_the_randomization.tex" 1711720333 1919 44f8e952a1726ac6d9a00d955b716bf0 ""
   "Tables/ddd.tex" 1711720333 2960 2470d739ad8c5b272f4d327b05408f64 ""
   "Tables/did_result.tex" 1711720333 3635 4d36e81af304615db3187b4d35c4847a ""
-  "jfm-instructions.aux" 1711847707 5220 32ea9c827cebdcbe0ac5dd2e757988e3 "pdflatex"
-  "jfm-instructions.bbl" 1711847706 3658 e3ccf64984620c13bd965b6404d7e346 "bibtex jfm-instructions"
-  "jfm-instructions.out" 1711847707 1635 19fddf1f413a6d3a7964ad999628c15f "pdflatex"
-  "jfm-instructions.tex" 1711847705 15278 58f40d7efa9c0f0b25345e3fb5d7501d ""
+  "jfm-instructions.aux" 1711850999 5220 4b449eecdbaf92e778e506086aaa2872 "pdflatex"
+  "jfm-instructions.bbl" 1711850998 3658 e3ccf64984620c13bd965b6404d7e346 "bibtex jfm-instructions"
+  "jfm-instructions.out" 1711850999 1635 19fddf1f413a6d3a7964ad999628c15f "pdflatex"
+  "jfm-instructions.tex" 1711850997 16259 b2a221f02447cc164d12e567a4475b93 ""
   "jfm.cls" 1711720333 45612 691967a8d73892433739e65702333c38 ""
   "log_file/Replication_v2.log.pdf" 1711720333 165304 5a33ceb5ac1350f60fd68205d36e5e66 ""
   "stata-lstlistings.tex" 1711720333 5472 f3d9561cc9a5e2a75278eba361acffea ""
